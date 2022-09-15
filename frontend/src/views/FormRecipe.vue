@@ -56,21 +56,22 @@
     4.Manger">
                     </textarea>
 
-                    <label for="photo-upload">Image</label>
-                    <input type="file" @change="loadFile(input, 'photo-preview')" id="photo-upload" name="photo-upload" accept="image/*">
-                    <img id="photo-preview" src="../assets/photo.png">
-
+                    <label for="photo-upload">Photo recette</label>
+                    <FilePreview/>
                     <button type="submit" class="submit" @click="sendForm">Envoyer</button>
                 </form>
             </article>
         </section>
-       
     </div>
 </template>
 
 <script>
+import FilePreview from '../components/ImagePreview';
+
 export default {
-    
+    components: {
+        FilePreview,
+    },
 
   data() {
     return {
@@ -87,17 +88,6 @@ export default {
   },
   methods: {
 
-    loadFile(input, target) {
-        let file = input.files[0];
-        let reader = new FileReader();
-
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-            let img = document.getElementById(target);
-            // can also use "this.result"
-            img.src = reader.result;
-        }
-    },
 
     sendAddRecipe() {
         this.addRecipe.title = document.querySelector("#title-recipe").value;
@@ -220,13 +210,13 @@ input[type="radio"].category:checked  + label{
 // PHOTO RECIPE
 
 img{
-  max-width:120px;
+  width:120px;
+  height: 100px;
   margin: auto;
 }
 
 input[type=file]{
     padding:10px;
-
 }
 
 
