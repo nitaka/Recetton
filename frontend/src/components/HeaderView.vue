@@ -16,7 +16,7 @@
                   <router-link class="nav-link" to="#">A propos</router-link>
                 </li>
                 <li class="nav-item">
-                  <router-link class="nav-link" to="#">Se connecter</router-link>
+                  <router-link class="nav-link" to="/login">Se connecter</router-link>
                 </li>
               </ul>
             </div>
